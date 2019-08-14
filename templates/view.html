@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>人脸识别</title>
+</head>
+<body>
+<form action="/recongnition" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="Photo">
+    <input type="submit" value="提交">
+</form>
+
+{% if Photo %}
+<p><img src={{ Photo }} width="300">
+{% if target_img %}<img src={{ target_img }} width="300">{% endif %}
+</p>
+<p>年龄：{{ age }}岁<p>
+<p>颜值：{{ beauty }}分<p>
+<p>性别：{{ gender }}{{ face_type }}<p>
+{% endif %}
+</body>
+
+</html>
